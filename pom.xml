@@ -10,7 +10,8 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>journalApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+
+ 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -27,7 +28,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>25</java.version>
+		<java.version>21</java.version>
         <sonar.organization>anonymous0911</sonar.organization>
     </properties>
 	<dependencies>
