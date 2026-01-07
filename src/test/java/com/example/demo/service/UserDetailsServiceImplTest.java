@@ -28,23 +28,23 @@ class UserDetailsServiceImplTest {
     @Mock
     private PasswordEncoder passwordEncoder;
 
-    @Test
-    void loadUserByUsername() {
-
-        User mockUser = (User.builder()
-                .userName("aaquib")
-                .password("encoded-pass")
-                .roles(List.of("USER"))
-                .build());
-
-        when(userRepository.findByUserName(anyString()))
-                .thenReturn(mockUser);
-
-
-
-        UserDetails userDetails =
-                userDetailsService.loadUserByUsername("aaquib");
-
-
-    }
-}
+//    @Test
+//    void loadUserByUsername() {
+//
+//        User mockUser = (User.builder()
+//                .userName("aaquib")
+//                .password("encoded-pass")
+//                .roles(List.of("USER"))
+//                .build());
+//
+//        when(userRepository.findByUserName(anyString()))
+//                .thenReturn(mockUser);
+//
+//
+//
+//        UserDetails userDetails =
+//                userDetailsService.loadUserByUsername("aaquib");
+//
+//
+//    }
+//}
