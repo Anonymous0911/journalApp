@@ -28,7 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>25</java.version>
-	</properties>
+        <sonar.organization>anonymous0911</sonar.organization>
+    </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
