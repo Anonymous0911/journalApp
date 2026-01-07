@@ -3,18 +3,22 @@ package com.example.demo.service;
 
 import com.example.demo.repository.UserRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
-public class UserServiceTests {
+@ExtendWith(MockitoExtension.class)
+class UserServiceTests {
 
-    @Autowired
+    @InjectMocks
     private UserService userService;
 
-    @Autowired
+    @Mock
     private UserRepository userRepository;
 
     @Test
