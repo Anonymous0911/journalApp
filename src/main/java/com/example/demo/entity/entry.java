@@ -15,12 +15,12 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class entry  {
-        @Id
-        private ObjectId id;
-        @NonNull
-        private String title;
-        private String description;
-        private LocalDateTime date;
+    @Id
+    private ObjectId id;
+    @NonNull
+    private String title;
+    private String description;
+    private LocalDateTime date;
 
 
 
