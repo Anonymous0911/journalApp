@@ -1,18 +1,18 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.User;
-import com.example.demo.entity.entry;
+import com.example.demo.entity.JournalEntry;
 import com.example.demo.repository.JournalEntryRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class JournalEntryService {
 
 
@@ -22,27 +22,27 @@ public class JournalEntryService {
     private UserService userService;
 
     @Transactional
-    public void saveJournalEntry(entry journalEntry, String userName) {
+    public void saveJournalEntry(JournalEntry journalEntry, String userName) {
         try {
             User user = userService.findByUsername(userName);
             journalEntry.setDate(LocalDateTime.now());
-            entry saved = journalEntryRepository.save(journalEntry);
+            JournalEntry saved = journalEntryRepository.save(journalEntry);
             user.getJournalEntries().add(saved);
 
             userService.saveUser(user);
         } catch (Exception e) {
-                throw new RuntimeException("An error occurred while saving.",e);
+            throw new RuntimeException("An error occurred while saving.",e);
         }
 
     }
-    public void saveJournalEntry(entry journalEntry) {
+    public void saveJournalEntry(JournalEntry journalEntry) {
 
         journalEntryRepository.save(journalEntry);
     }
-    public List<entry> getALL(){
+    public List<JournalEntry> getALL(){
         return journalEntryRepository.findAll();
     }
-    public Optional<entry> findById(ObjectId id){
+    public Optional<JournalEntry> findById(ObjectId id){
         return journalEntryRepository.findById(id);
 
     }
@@ -55,8 +55,8 @@ public class JournalEntryService {
             removed=user.getJournalEntries().removeIf(entry -> entry.getId().equals(id));
             if(removed){
 
-            userService.saveUser(user);
-            journalEntryRepository.deleteById(id);
+                userService.saveUser(user);
+                journalEntryRepository.deleteById(id);
             }
         } catch (Exception e) {
             System.out.println(e);
